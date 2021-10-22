@@ -1,0 +1,232 @@
+.contenedor-tabs {
+    --color: #49A2E1;
+    display: flex;
+    flex-wrap: wrap;
+	line-height: 1.400;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+.contenedor-tabs * {
+    box-sizing: border-box;
+}
+.contenedor-tabs .botones-tabs {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.contenedor-tabs .botones-tabs .tab-btn {
+    border: 1px solid transparent;
+    background-color: #fff;
+    position: relative;
+    padding: 12.5px 25px;
+    cursor: pointer;
+    outline-style: none;
+    font-size: .95rem;
+    transition: all ease-in-out 200ms;
+    color: #7B7B7B;
+}
+.contenedor-tabs .botones-tabs .tab-btn:hover:not(.activo):not(.elegante .tab-btn):not(.moderno .tab-btn) {
+    background-color: rgba(0, 0, 0, .05);
+}
+.contenedor-tabs .botones-tabs .tab-btn i {
+    display: inline-block;
+    transform: scale(1.2);
+}
+.contenedor-tabs .botones-tabs .tab-btn .tab-titulo {
+    display: inline-block;
+    margin-left: .75rem;
+}
+.contenedor-tabs .contenedores-tabs {
+    display: block;
+    overflow: hidden;
+}
+.contenedor-tabs .tab-contenido {
+    display: none;
+    width: 100%;
+    position: relative;
+    padding: 30px 20px;
+}
+.contenedor-tabs .tab-contenido.activo {
+    display: block;
+}
+.vertical .tab-contenido {
+    padding: 0 25px;
+}
+.vertical .botones-tabs {
+    width: 280px !important;
+}
+.vertical .botones-tabs {
+    flex-direction: column;
+    text-align-last: left;
+}
+.vertical .contenedores-tabs {
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+@media (max-width: 768px) {
+    .horizontal .botones-tabs .tab-btn {
+        text-align: center;
+    }
+    .horizontal .botones-tabs .tab-btn i {
+        margin-bottom: .5rem;
+    }
+    .horizontal .botones-tabs .tab-btn .tab-titulo {
+        display: block;
+        font-size: .8rem;
+        margin: 0;
+    }
+}
+@media (max-width: 480px) {
+    .horizontal .botones-tabs .tab-btn {
+        text-align: center;
+    }
+    .horizontal .botones-tabs .tab-btn i {
+        margin-bottom: 0;
+    }
+    .horizontal .botones-tabs .tab-btn .tab-titulo {
+        display: none;
+    }
+}
+@media (max-width: 768px) {
+    .vertical .botones-tabs {
+        width: 200px !important;
+    }
+}
+@media (max-width: 480px) {
+    .vertical .botones-tabs {
+        width: 70px !important;
+    }
+    .vertical .botones-tabs .tab-btn .tab-titulo {
+        display: none;
+        margin: 0;
+    }
+}
+
+/* animacion tabs container */
+.animacion {
+    display: block;
+    animation: anim .25s ease-in-out 1 normal both;
+    transform: translateX(3rem);
+    opacity: 0;
+}
+@keyframes anim {
+    from {
+        transform: translateX(3rem);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+/* diseño por defecto */
+.defecto .tab-btn {
+    background-color: rgba(0, 0, 0, .05);
+}
+.defecto .tab-btn.activo {
+    background-color: var(--color);
+    color: #fff;
+}
+.defecto.horizontal .botones-tabs {
+    border-bottom: 3px solid var(--color);
+}
+.defecto.horizontal .tab-btn {
+    border-radius: 12px 12px 0 0;
+}
+.defecto.horizontal .tab-btn + .tab-btn {
+    margin-left: .5rem;
+}
+.defecto.vertical .tab-btn {
+    border-radius: 2rem 0 0 2rem;
+}
+.defecto.vertical .tab-btn + .tab-btn {
+    margin-top: .5rem;
+}
+.defecto.vertical .botones-tabs {
+    border-right: 3px solid var(--color);
+}
+
+/* estilo para diseño moderno */
+.moderno.horizontal .tab-btn.activo,
+.moderno.vertical .tab-btn.activo {
+    color: var(--color);
+}
+.moderno.horizontal .botones-tabs,
+.moderno.vertical .botones-tabs {
+    width: 100%;
+    border-bottom: 2px solid rgba(0, 0, 0, .1);
+}
+.moderno.horizontal .botones-tabs .tab-btn::before,
+.moderno.vertical .botones-tabs .tab-btn::before {
+    content: '';
+    position: absolute;
+    transition: all ease-in-out 200ms;
+}
+.moderno.horizontal .botones-tabs .tab-btn::before {
+    border-bottom: 2px solid #949494;
+    bottom: -3px;
+    width: 0%;
+    left: 50%;
+}
+.moderno.horizontal .botones-tabs .tab-btn.activo::before,
+.moderno.horizontal .botones-tabs .tab-btn:hover::before {
+    width: 100%;
+    left: 0;
+}
+.moderno.vertical .botones-tabs .tab-btn::before {
+    border-left: 2px solid #949494;
+    left: -3px;
+    height: 0%;
+    top: 50%;
+}
+.moderno.vertical .botones-tabs .tab-btn.activo::before,
+.moderno.vertical .botones-tabs .tab-btn:hover::before {
+    height: 100%;
+    top: 0;
+}
+.moderno .botones-tabs .tab-btn.activo::before {
+    border-color: var(--color);
+}
+/* direccion */
+.moderno.vertical .botones-tabs {
+    border-bottom: none;
+    border-left: 2px solid rgba(0, 0, 0, .2);
+}
+
+/* estilos diseño elegante */
+.elegante.horizontal .botones-tabs {
+    border-bottom: 1px solid var(--color);
+}
+.elegante.horizontal .tab-btn {
+    border-radius: 10px 10px 0 0;
+    color: #939393;
+}
+.elegante.horizontal .tab-btn:hover {
+    color: var(--color);
+}
+.elegante.horizontal .tab-btn.activo {
+    border: 1px solid var(--color);
+    border-bottom: none;
+    transform: translateY(1px);
+    color: var(--color);
+}
+
+.elegante.vertical .botones-tabs {
+    border-right: 1px solid var(--color);
+}
+.elegante.vertical .tab-btn {
+    border-radius: 10px 0 0 10px;
+    color: #939393;
+}
+.elegante.vertical .tab-btn:hover {
+    color: var(--color);
+}
+.elegante.vertical .tab-btn.activo {
+    border: 1px solid var(--color);
+    border-right: none;
+    transform: translateX(1px);
+    color: var(--color);
+}
